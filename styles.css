@@ -1,0 +1,74 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background: #ffffff;
+  color: #000;
+}
+
+/* Header */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.site-header h1 {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.site-header nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+}
+
+/* Gallery grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 40px;
+}
+
+.gallery img {
+  width: 100%;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.gallery img:hover {
+  opacity: 0.85;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
+}
