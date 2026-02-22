@@ -1,4 +1,8 @@
-/* Reset */
+body {
+  font-family: -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.01em;
+}/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -12,11 +16,11 @@ body {
 }
 
 /* Header */
-.site-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 40px;
-  border-bottom: 1px solid #e5e5e5;
+.site-header h1 {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .site-header h1 {
@@ -62,6 +66,8 @@ body {
 .modal img {
   max-width: 90%;
   max-height: 90%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .close {
@@ -71,4 +77,14 @@ body {
   font-size: 32px;
   color: white;
   cursor: pointer;
+}
+.gallery img {
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
