@@ -2,67 +2,61 @@ const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modal-img");
 const closeBtn = document.getElementById("close");
 
-// Get all gallery images
-const images = Array.from(document.querySelectorAll(".gallery img"));
+// Collect images AFTER page loads
+const images = [...document.querySelectorAll(".gallery img")];
 
-let currentIndex = 0;
+let currentIndex = -1;
 
-// Open modal when clicking an image
+// Open modal
 images.forEach((img, index) => {
   img.addEventListener("click", () => {
     currentIndex = index;
-    openModal();
+    showImage();
+    modal.style.display = "flex";
   });
 });
 
-function openModal() {
-  modal.style.display = "flex";
+function showImage() {
   modalImg.src = images[currentIndex].src;
 }
 
-function closeModal() {
+// Close modal
+closeBtn.addEventListener("click", () => {
   modal.style.display = "none";
-}
-
-// Close button
-closeBtn.addEventListener("click", closeModal);
+});
 
 // Keyboard navigation
 document.addEventListener("keydown", (e) => {
   if (modal.style.display !== "flex") return;
 
   if (e.key === "ArrowRight") {
-    nextImage();
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage();
   }
 
   if (e.key === "ArrowLeft") {
-    prevImage();
+    currentIndex =
+      (currentIndex - 1 + images.length) % images.length;
+    showImage();
   }
 
   if (e.key === "Escape") {
-    closeModal();
+    modal.style.display = "none";
   }
 });
 
-// Click left/right side of image
-modalImg.addEventListener("click", (e) => {
-  const clickX = e.clientX;
-  const screenWidth = window.innerWidth;
+// Click zones (left / right half of screen)
+modal.addEventListener("click", (e) => {
+  if (e.target !== modalImg) return;
 
-  if (clickX > screenWidth / 2) {
-    nextImage();
+  const midpoint = window.innerWidth / 2;
+
+  if (e.clientX > midpoint) {
+    currentIndex = (currentIndex + 1) % images.length;
   } else {
-    prevImage();
+    currentIndex =
+      (currentIndex - 1 + images.length) % images.length;
   }
+
+  showImage();
 });
-
-function nextImage() {
-  currentIndex = (currentIndex + 1) % images.length;
-  modalImg.src = images[currentIndex].src;
-}
-
-function prevImage() {
-  currentIndex =
-    (currentIndex - 1 + images.length) % images.length;
-  modalImg.src = images[currentIndex].src;
-}
