@@ -11,10 +11,9 @@
 html {
   min-height: 100%;
   background: linear-gradient(
-    120deg,
-    #f8f6f3,
-    #f1f1f1,
-    #ffffff
+   140deg,
+  red,
+  blue
   );
 }
 
