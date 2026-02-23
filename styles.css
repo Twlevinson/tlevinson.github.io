@@ -10,11 +10,12 @@ body {
 }
 
 body {
+  margin: 0;
   background: linear-gradient(
     120deg,
-    #f9f9f9,
-    #f2f2f2,
-    #fafafa
+    #f8f6f3,
+    #f1f1f1,
+    #ffffff
   );
   background-attachment: fixed;
 }
