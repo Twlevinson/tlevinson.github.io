@@ -10,9 +10,13 @@ body {
 }
 
 body {
-  font-family: Helvetica, Arial, sans-serif;
-  background: #ffffff;
-  color: #000;
+  background: linear-gradient(
+    120deg,
+    #f9f9f9,
+    #f2f2f2,
+    #fafafa
+  );
+  background-attachment: fixed;
 }
 
 /* Header */
