@@ -24,11 +24,17 @@ images.forEach((img, index) => {
 function showImage() {
   modalImg.style.opacity = 0;
 
-  modalImg.src = images[currentIndex].src;
+  const src = images[currentIndex].src;
+  modalImg.src = src;
 
-  modalImg.onload = () => {
+  // If image is cached, onload may not fire
+  if (modalImg.complete) {
     modalImg.style.opacity = 1;
-  };
+  } else {
+    modalImg.onload = () => {
+      modalImg.style.opacity = 1;
+    };
+  }
 }
 
 /* -----------------------
