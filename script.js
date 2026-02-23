@@ -90,3 +90,26 @@ function prevImage() {
   currentIndex = (currentIndex - 1 + images.length) % images.length;
   showImage();
 }
+let touchStartX = 0;
+let touchEndX = 0;
+
+modalImg.addEventListener("touchstart", (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+});
+
+modalImg.addEventListener("touchend", (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  const threshold = 50;
+
+  if (touchEndX < touchStartX - threshold) {
+    nextImage();
+  }
+
+  if (touchEndX > touchStartX + threshold) {
+    prevImage();
+  }
+}
