@@ -62,6 +62,10 @@ body.modal-open {
 .site-header nav a:hover {
   opacity: 1;
 }
+.site-header h1 a {
+  text-decoration: none;
+  color: inherit;
+}
 
 /* =======================
    GALLERY GRID
@@ -165,4 +169,5 @@ body.modal-open {
   .contact {
     padding: 80px 20px;
   }
+   
 }
