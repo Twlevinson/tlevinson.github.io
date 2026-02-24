@@ -210,3 +210,39 @@ body.modal-open {
     padding: 80px 20px;
   }
 }
+/* =======================
+   ULTRA-SUBTLE SOCIAL TEXT
+======================= */
+.social-text {
+  position: fixed;
+  bottom: 28px;
+  left: 32px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  z-index: 2000;
+}
+
+.social-text a {
+  color: #000;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.social-text a:hover {
+  opacity: 1;
+}
+
+.social-text span {
+  margin: 0 6px;
+}
+
+/* Mobile: center at bottom */
+@media (max-width: 768px) {
+  .social-text {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 18px;
+  }
+}
