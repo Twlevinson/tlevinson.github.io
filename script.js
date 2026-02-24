@@ -1,13 +1,11 @@
 /* =======================
-   MODAL ELEMENTS
+   ELEMENTS
 ======================= */
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modal-img");
 const closeBtn = document.getElementById("close");
+const counter = document.getElementById("counter");
 
-/* =======================
-   GALLERY IMAGES
-======================= */
 const images = Array.from(document.querySelectorAll(".gallery img"));
 let currentIndex = 0;
 
@@ -18,19 +16,21 @@ images.forEach((img, index) => {
   img.addEventListener("click", () => {
     currentIndex = index;
     modal.style.display = "flex";
-    document.body.classList.add("modal-open"); // lock background scroll
+    document.body.classList.add("modal-open");
     showImage();
   });
 });
 
 /* =======================
-   SHOW IMAGE (FADE SAFE)
+   SHOW IMAGE (CACHE SAFE)
 ======================= */
 function showImage() {
   modalImg.style.opacity = 0;
 
   const src = images[currentIndex].src;
   modalImg.src = src;
+
+  counter.textContent = `${currentIndex + 1} / ${images.length}`;
 
   if (modalImg.complete) {
     modalImg.style.opacity = 1;
@@ -48,7 +48,7 @@ closeBtn.addEventListener("click", closeModal);
 
 function closeModal() {
   modal.style.display = "none";
-  document.body.classList.remove("modal-open"); // unlock scroll
+  document.body.classList.remove("modal-open");
 }
 
 /* =======================
