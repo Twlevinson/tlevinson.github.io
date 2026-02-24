@@ -1,5 +1,5 @@
 /* =======================
-   RESET + BASE
+   RESET
 ======================= */
 * {
   margin: 0;
@@ -7,20 +7,44 @@
   box-sizing: border-box;
 }
 
-/* FORCE gradient on root */
-html {
-  min-height: 100%;
-background: linear-gradient(
-  120deg,
-  #f8f6f3,
-  #f1f1f1,
-  #ffffff
+html,
+body {
+  height: 100%;
+}
+
+/* =======================
+   BACKGROUND LAYERS
+======================= */
+
+/* Gradient */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(
+    140deg,
+    #efe9df,
+    #f4f1ec 45%,
+    #fbfaf8 80%
   );
 }
 
-/* Body sits transparently on top */
+/* Paper grain overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("images/grain.png");
+  opacity: 0.06;
+}
+
+/* =======================
+   BASE TYPOGRAPHY
+======================= */
 body {
-  min-height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont,
     "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: 0.01em;
@@ -50,21 +74,22 @@ body.modal-open {
   text-transform: uppercase;
 }
 
+.site-header h1 a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .site-header nav a {
   margin-left: 20px;
   text-decoration: none;
   color: #000;
   font-size: 14px;
-  opacity: 0.8;
+  opacity: 0.75;
   transition: opacity 0.2s ease;
 }
 
 .site-header nav a:hover {
   opacity: 1;
-}
-.site-header h1 a {
-  text-decoration: none;
-  color: inherit;
 }
 
 /* =======================
@@ -83,6 +108,8 @@ body.modal-open {
   opacity: 0;
   animation: fadeIn 0.8s ease forwards;
   transition: opacity 0.2s ease;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
 }
 
 .gallery img:hover {
@@ -113,7 +140,7 @@ body.modal-open {
   max-height: 90vh;
   opacity: 0;
   transition: opacity 0.3s ease;
-  cursor: pointer;
+  cursor: ew-resize; /* subtle navigation hint */
 }
 
 /* Close button */
@@ -132,14 +159,28 @@ body.modal-open {
   opacity: 1;
 }
 
+/* Image counter */
+.counter {
+  position: absolute;
+  bottom: 24px;
+  right: 32px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
 /* =======================
    CONTACT PAGE
 ======================= */
 .contact {
   padding: 120px 48px;
   font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.65;
   max-width: 680px;
+}
+
+.contact p {
+  margin-bottom: 1.4em;
 }
 
 .contact a {
@@ -169,5 +210,4 @@ body.modal-open {
   .contact {
     padding: 80px 20px;
   }
-   
 }
