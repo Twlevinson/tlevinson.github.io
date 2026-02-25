@@ -264,7 +264,7 @@ body.modal-open {
 
 .site-title img {
   display: block;
-  height: 48px;      /* desktop size */
+  height: 56px;      /* desktop size */
   width: auto;
   opacity: 0.9;
 }
