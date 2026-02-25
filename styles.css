@@ -214,16 +214,14 @@ body.modal-open {
    ULTRA-SUBTLE SOCIAL TEXT
 ======================= */
 .social-text {
-  position: fixed;
-  bottom: 28px;
-  left: 32px;
   font-size: 12px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   opacity: 0.5;
-  z-index: 2000;
+  padding: 40px 48px;
 }
 
+/* Links */
 .social-text a {
   color: #000;
   text-decoration: none;
@@ -238,11 +236,22 @@ body.modal-open {
   margin: 0 6px;
 }
 
-/* Mobile: center at bottom */
+/* Desktop: fixed bottom-left */
+@media (min-width: 769px) {
+  .social-text {
+    position: fixed;
+    bottom: 28px;
+    left: 32px;
+    padding: 0;
+    z-index: 2000;
+  }
+}
+
+/* Mobile: centered, below content */
 @media (max-width: 768px) {
   .social-text {
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 18px;
+    text-align: center;
+    padding: 32px 20px 48px;
+    opacity: 0.4;
   }
 }
