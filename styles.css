@@ -266,6 +266,7 @@ body.modal-open {
   display: block;
   height: 48px;      /* desktop size */
   width: auto;
+  opacity: 0.9;
 }
 
 /* Mobile tuning */
