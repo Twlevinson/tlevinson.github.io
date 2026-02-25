@@ -268,7 +268,9 @@ body.modal-open {
   width: auto;
   opacity: 0.9;
 }
-
+.site-title a {
+  text-decoration: none;
+}
 /* Mobile tuning */
 @media (max-width: 768px) {
   .site-title img {
