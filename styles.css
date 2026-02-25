@@ -255,3 +255,22 @@ body.modal-open {
     opacity: 0.4;
   }
 }
+/* =======================
+   SIGNATURE TITLE
+======================= */
+.site-title {
+  line-height: 1;
+}
+
+.site-title img {
+  display: block;
+  height: 48px;      /* desktop size */
+  width: auto;
+}
+
+/* Mobile tuning */
+@media (max-width: 768px) {
+  .site-title img {
+    height: 36px;
+  }
+}
